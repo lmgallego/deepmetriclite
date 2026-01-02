@@ -118,6 +118,15 @@
       "chart_title": "Power Duration Curve",
       "legend_recent": "Last 42 Days",
       "legend_season": "This Season"
+    },
+    "fatigue": {
+      "title": "Fatigue Monitor",
+      "subtitle": "Fitness (CTL) vs Fatigue (ATL) vs Form (TSB)",
+      "chart_title": "Performance Management Chart (90 Days)",
+      "fitness_desc": "Long term training load",
+      "fatigue_desc": "Recent training load",
+      "form_desc": "Training Stress Balance",
+      "ramp_desc": "7 Day CTL Ramp Rate"
     }
   }
 }

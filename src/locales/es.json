@@ -118,6 +118,15 @@
       "chart_title": "Curva de Potencia-Duración",
       "legend_recent": "Últimos 42 Días",
       "legend_season": "Esta Temporada"
+    },
+    "fatigue": {
+      "title": "Monitor de Fatiga",
+      "subtitle": "Fitness (CTL) vs Fatiga (ATL) vs Forma (TSB)",
+      "chart_title": "Gráfica de Gestión de Rendimiento (90 Días)",
+      "fitness_desc": "Carga a largo plazo",
+      "fatigue_desc": "Carga reciente",
+      "form_desc": "Balance de Estrés",
+      "ramp_desc": "Tasa de Subida CTL (7d)"
     }
   }
 }
