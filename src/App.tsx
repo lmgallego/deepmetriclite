@@ -3,6 +3,7 @@ import { AuthProvider, useAuth } from './context/AuthContext';
 import Landing from './pages/Landing';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
+import Readiness from './pages/Readiness';
 
 // Component for protecting private routes
 const PrivateRoute = ({ children }: { children: JSX.Element }) => {
@@ -31,6 +32,14 @@ function App() {
               element={
                 <PrivateRoute>
                   <Dashboard />
+                </PrivateRoute>
+              } 
+            />
+            <Route 
+              path="/readiness" 
+              element={
+                <PrivateRoute>
+                  <Readiness />
                 </PrivateRoute>
               } 
             />

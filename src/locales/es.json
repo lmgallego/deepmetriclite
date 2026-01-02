@@ -76,7 +76,41 @@
     },
     "dashboard": {
       "welcome": "Bienvenido de nuevo",
-      "logout": "Cerrar Sesión"
+      "logout": "Cerrar Sesión",
+      "apps": {
+        "readiness": {
+          "title": "Monitor de Readiness V2",
+          "desc": "Análisis avanzado de HRV, pulso en reposo y sueño para determinar tu forma diaria."
+        }
+      }
+    },
+    "readiness": {
+      "subtitle": "Análisis biométrico avanzado para optimización diaria",
+      "refresh": "Actualizar",
+      "syncing": "Sincronizando...",
+      "error_unauthorized": "Clave API inválida.",
+      "error_invalid_response": "Respuesta no válida de Intervals.icu",
+      "restricted_mode": "Algoritmo Restringido (Sin Sueño)",
+      "rhr": "Pulso Reposo",
+      "sleep": "Descanso",
+      "missing_data": "Faltan valores",
+      "quality": "Calidad",
+      "cycle_30d": "Ciclo de 30 Días",
+      "values": "VALORES",
+      "load_tss": "Carga (TSS)",
+      "avg_7d": "Media 7d",
+      "algorithm_notes": "Notas del Algoritmo V2",
+      "null_detection": "Detección de Nulos",
+      "null_detection_desc": "Si faltan datos de sueño o score, el sistema ignora esas penalizaciones para no falsear el resultado, basándose solo en HRV y RHR.",
+      "sensitivity": "Sensibilidad",
+      "sensitivity_desc": "El ratio de HRV se mantiene elevado a la potencia 1.4 para priorizar el estado del sistema nervioso central.",
+      "diagnosis": "Diagnóstico",
+      "diag_partial": "⚠️ Diagnóstico parcial: Sin datos de descanso, el score depende exclusivamente de tu respuesta cardiovascular.",
+      "diag_critical": "Fatiga crítica detectada. La asimilación de carga es nula, prioriza el sueño y descanso.",
+      "diag_warning": "Estado de fatiga acumulada. Buen día para movilidad o Zona 1.",
+      "diag_optimal": "Fisiología en equilibrio. Listo para absorber intensidad.",
+      "loading_data": "Cargando datos biométricos...",
+      "no_data": "No hay datos disponibles de los últimos 30 días."
     }
   }
 }

@@ -1,9 +1,12 @@
 import { useAuth } from '../context/AuthContext';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
+import { Activity, Zap } from 'lucide-react';
 
 const Dashboard = () => {
   const { user, logout } = useAuth();
   const { t } = useTranslation();
+  const navigate = useNavigate();
 
   return (
     <div className="min-h-screen bg-netflix-black text-white p-8 pt-24">
@@ -14,28 +17,45 @@ const Dashboard = () => {
           </h1>
           <button 
             onClick={logout}
-            className="px-4 py-2 border border-gray-600 rounded hover:bg-gray-800 transition"
+            className="px-4 py-2 border border-gray-600 rounded hover:bg-gray-800 transition text-sm"
           >
             {t('dashboard.logout')}
           </button>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {/* Placeholder Cards */}
-          <div className="bg-[#181818] p-6 rounded-lg border border-gray-800 hover:border-gray-600 transition">
-            <h3 className="text-xl font-bold mb-4">Power Profile</h3>
-            <p className="text-gray-400">Your Critical Power Analysis will appear here.</p>
-          </div>
           
-          <div className="bg-[#181818] p-6 rounded-lg border border-gray-800 hover:border-gray-600 transition">
-            <h3 className="text-xl font-bold mb-4">Fatigue Monitor</h3>
-            <p className="text-gray-400">Tracking your chronic training load.</p>
+          {/* Readiness Monitor Card */}
+          <div 
+            onClick={() => navigate('/readiness')}
+            className="group bg-[#181818] rounded-xl overflow-hidden cursor-pointer transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:shadow-indigo-500/20 border border-gray-800 hover:border-indigo-500/50"
+          >
+            <div className="h-40 bg-gradient-to-br from-indigo-900 to-slate-900 relative overflow-hidden">
+               <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1470&auto=format&fit=crop')] bg-cover bg-center opacity-40 group-hover:opacity-50 transition-opacity" />
+               <div className="absolute top-4 right-4 bg-indigo-600 p-2 rounded-lg">
+                  <Activity className="text-white w-6 h-6" />
+               </div>
+               <div className="absolute bottom-4 left-4">
+                 <span className="text-xs font-bold text-indigo-400 tracking-wider uppercase">Utility #1</span>
+               </div>
+            </div>
+            <div className="p-6">
+              <h3 className="text-xl font-bold mb-2 group-hover:text-indigo-400 transition-colors">{t('dashboard.apps.readiness.title')}</h3>
+              <p className="text-gray-400 text-sm leading-relaxed">
+                {t('dashboard.apps.readiness.desc')}
+              </p>
+            </div>
           </div>
 
-          <div className="bg-[#181818] p-6 rounded-lg border border-gray-800 hover:border-gray-600 transition">
-            <h3 className="text-xl font-bold mb-4">Recent Activities</h3>
-            <p className="text-gray-400">Analysis of your latest rides.</p>
+          {/* Placeholder Cards */}
+          <div className="bg-[#181818] p-6 rounded-xl border border-gray-800 opacity-50 cursor-not-allowed">
+            <div className="h-40 bg-gray-900 rounded-lg mb-4 flex items-center justify-center">
+               <Zap className="text-gray-700 w-12 h-12" />
+            </div>
+            <h3 className="text-xl font-bold mb-2">Power Profile</h3>
+            <p className="text-gray-400 text-sm">Coming soon...</p>
           </div>
+          
         </div>
       </div>
     </div>

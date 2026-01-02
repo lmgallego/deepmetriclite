@@ -76,7 +76,41 @@
     },
     "dashboard": {
       "welcome": "Welcome back",
-      "logout": "Sign Out"
+      "logout": "Sign Out",
+      "apps": {
+        "readiness": {
+          "title": "Readiness Monitor V2",
+          "desc": "Advanced analysis of HRV, resting heart rate, and sleep to determine your daily form."
+        }
+      }
+    },
+    "readiness": {
+      "subtitle": "Advanced biometric analysis for daily training optimization",
+      "refresh": "Update",
+      "syncing": "Syncing...",
+      "error_unauthorized": "Invalid API Key.",
+      "error_invalid_response": "Invalid response from Intervals.icu",
+      "restricted_mode": "Restricted Algo (No Sleep)",
+      "rhr": "Resting Pulse",
+      "sleep": "Sleep",
+      "missing_data": "Missing Values",
+      "quality": "Quality",
+      "cycle_30d": "30 Day Cycle",
+      "values": "VALUES",
+      "load_tss": "Load (TSS)",
+      "avg_7d": "7d Avg",
+      "algorithm_notes": "Algorithm V2 Notes",
+      "null_detection": "Null Detection",
+      "null_detection_desc": "If sleep data or score is missing, the system ignores those penalties to avoid skewing the result, based only on HRV and RHR.",
+      "sensitivity": "Sensitivity",
+      "sensitivity_desc": "HRV ratio is kept raised to the power of 1.4 to prioritize central nervous system status.",
+      "diagnosis": "Diagnosis",
+      "diag_partial": "⚠️ Partial diagnosis: Without sleep data, the score depends exclusively on your cardiovascular response.",
+      "diag_critical": "Critical fatigue detected. Load assimilation is null, prioritize sleep and rest.",
+      "diag_warning": "Accumulated fatigue state. Good day for mobility or Zone 1.",
+      "diag_optimal": "Physiology in balance. Ready to absorb intensity.",
+      "loading_data": "Loading biometric data...",
+      "no_data": "No data available for the last 30 days."
     }
   }
 }
