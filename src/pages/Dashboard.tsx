@@ -1,7 +1,7 @@
 import { useAuth } from '../context/AuthContext';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-import { Activity, Zap, Battery } from 'lucide-react';
+import { Activity, Zap, Battery, Calendar } from 'lucide-react';
 
 const Dashboard = () => {
   const { user, logout } = useAuth();
@@ -87,6 +87,28 @@ const Dashboard = () => {
               <h3 className="text-xl font-bold mb-2 group-hover:text-blue-500 transition-colors">{t('fatigue.title')}</h3>
               <p className="text-gray-400 text-sm leading-relaxed">
                 {t('fatigue.subtitle')}
+              </p>
+            </div>
+          </div>
+          
+          {/* Activities Card */}
+          <div 
+            onClick={() => navigate('/activities')}
+            className="group bg-[#181818] rounded-xl overflow-hidden cursor-pointer transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:shadow-green-900/20 border border-gray-800 hover:border-green-600/50"
+          >
+            <div className="h-40 bg-gradient-to-br from-green-900 to-black relative overflow-hidden">
+               <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1541625602330-2277a4c46182?q=80&w=1470&auto=format&fit=crop')] bg-cover bg-center opacity-40 group-hover:opacity-50 transition-opacity" />
+               <div className="absolute top-4 right-4 bg-green-600 p-2 rounded-lg shadow-lg">
+                  <Calendar className="text-white w-6 h-6" />
+               </div>
+               <div className="absolute bottom-4 left-4">
+                 <span className="text-xs font-bold text-green-200 tracking-wider uppercase">Utility #4</span>
+               </div>
+            </div>
+            <div className="p-6">
+              <h3 className="text-xl font-bold mb-2 group-hover:text-green-500 transition-colors">{t('activities.title')}</h3>
+              <p className="text-gray-400 text-sm leading-relaxed">
+                {t('activities.subtitle')}
               </p>
             </div>
           </div>

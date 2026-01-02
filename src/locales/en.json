@@ -127,6 +127,10 @@
       "fatigue_desc": "Recent training load",
       "form_desc": "Training Stress Balance",
       "ramp_desc": "7 Day CTL Ramp Rate"
+    },
+    "activities": {
+      "title": "Recent Activities",
+      "subtitle": "Analysis of your last 30 days of training"
     }
   }
 }

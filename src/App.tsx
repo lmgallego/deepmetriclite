@@ -6,6 +6,7 @@ import Dashboard from './pages/Dashboard';
 import Readiness from './pages/Readiness';
 import PowerProfile from './pages/PowerProfile';
 import Fatigue from './pages/Fatigue';
+import Activities from './pages/Activities';
 
 // Component for protecting private routes
 const PrivateRoute = ({ children }: { children: JSX.Element }) => {
@@ -58,6 +59,14 @@ function App() {
               element={
                 <PrivateRoute>
                   <Fatigue />
+                </PrivateRoute>
+              } 
+            />
+            <Route 
+              path="/activities" 
+              element={
+                <PrivateRoute>
+                  <Activities />
                 </PrivateRoute>
               } 
             />
