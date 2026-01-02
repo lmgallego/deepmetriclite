@@ -12,7 +12,7 @@ const Features = () => {
       icon: <BarChart2 className="w-8 h-8 text-netflix-red" />,
       title: t('features.items.power.title'),
       description: t('features.items.power.desc'),
-      image: "https://images.unsplash.com/photo-1576435728678-68d0fbf94e91?q=80&w=2048&auto=format&fit=crop"
+      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=2070&auto=format&fit=crop"
     },
     {
       icon: <Activity className="w-8 h-8 text-netflix-red" />,
@@ -24,13 +24,13 @@ const Features = () => {
       icon: <Zap className="w-8 h-8 text-netflix-red" />,
       title: t('features.items.intervals.title'),
       description: t('features.items.intervals.desc'),
-      image: "https://images.unsplash.com/photo-1555675409-77a8846c8230?q=80&w=2070&auto=format&fit=crop"
+      image: "https://images.unsplash.com/photo-1541625602330-2277a4c46182?q=80&w=2070&auto=format&fit=crop"
     },
     {
       icon: <TrendingUp className="w-8 h-8 text-netflix-red" />,
       title: t('features.items.progress.title'),
       description: t('features.items.progress.desc'),
-      image: "https://images.unsplash.com/photo-1616960893049-7c87c06cb491?q=80&w=2070&auto=format&fit=crop"
+      image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=2073&auto=format&fit=crop"
     },
     {
       icon: <BarChart2 className="w-8 h-8 text-netflix-red" />,
