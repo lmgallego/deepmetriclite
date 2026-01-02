@@ -111,6 +111,13 @@
       "diag_optimal": "Fisiología en equilibrio. Listo para absorber intensidad.",
       "loading_data": "Cargando datos biométricos...",
       "no_data": "No hay datos disponibles de los últimos 30 días."
+    },
+    "power": {
+      "title": "Perfil de Potencia",
+      "subtitle": "Análisis de Potencia Crítica (42d vs Temporada)",
+      "chart_title": "Curva de Potencia-Duración",
+      "legend_recent": "Últimos 42 Días",
+      "legend_season": "Esta Temporada"
     }
   }
 }

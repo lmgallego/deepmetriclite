@@ -111,6 +111,13 @@
       "diag_optimal": "Physiology in balance. Ready to absorb intensity.",
       "loading_data": "Loading biometric data...",
       "no_data": "No data available for the last 30 days."
+    },
+    "power": {
+      "title": "Power Profile",
+      "subtitle": "Critical Power Analysis (42d vs Season)",
+      "chart_title": "Power Duration Curve",
+      "legend_recent": "Last 42 Days",
+      "legend_season": "This Season"
     }
   }
 }

@@ -47,13 +47,26 @@ const Dashboard = () => {
             </div>
           </div>
 
-          {/* Placeholder Cards */}
-          <div className="bg-[#181818] p-6 rounded-xl border border-gray-800 opacity-50 cursor-not-allowed">
-            <div className="h-40 bg-gray-900 rounded-lg mb-4 flex items-center justify-center">
-               <Zap className="text-gray-700 w-12 h-12" />
+          {/* Power Profile Card */}
+          <div 
+            onClick={() => navigate('/power-profile')}
+            className="group bg-[#181818] rounded-xl overflow-hidden cursor-pointer transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:shadow-yellow-900/20 border border-gray-800 hover:border-yellow-600/50"
+          >
+            <div className="h-40 bg-gradient-to-br from-yellow-900 to-black relative overflow-hidden">
+               <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1517649763962-0c623066013b?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-40 group-hover:opacity-50 transition-opacity" />
+               <div className="absolute top-4 right-4 bg-yellow-600 p-2 rounded-lg shadow-lg">
+                  <Zap className="text-white w-6 h-6" />
+               </div>
+               <div className="absolute bottom-4 left-4">
+                 <span className="text-xs font-bold text-yellow-200 tracking-wider uppercase">Utility #2</span>
+               </div>
             </div>
-            <h3 className="text-xl font-bold mb-2">Power Profile</h3>
-            <p className="text-gray-400 text-sm">Coming soon...</p>
+            <div className="p-6">
+              <h3 className="text-xl font-bold mb-2 group-hover:text-yellow-500 transition-colors">{t('power.title')}</h3>
+              <p className="text-gray-400 text-sm leading-relaxed">
+                {t('power.subtitle')}
+              </p>
+            </div>
           </div>
           
         </div>
