@@ -33,21 +33,9 @@ export default defineConfig({
       },
       mangle: {
         toplevel: true,
-        properties: {
-          regex: /^_/,
-        },
       },
       format: {
         comments: false,
-      },
-    },
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          vendor: ['react', 'react-dom', 'react-router-dom'],
-          charts: ['recharts'],
-          ui: ['framer-motion', 'lucide-react'],
-        },
       },
     },
   },
