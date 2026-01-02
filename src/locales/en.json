@@ -1,0 +1,68 @@
+{
+  "translation": {
+    "navbar": {
+      "launch": "Launch App"
+    },
+    "hero": {
+      "title_prefix": "Unlock Your",
+      "title_highlight": "Cycling Potential",
+      "description": "Advanced analytics and tools for Intervals.icu users. Deep dive into your data with our free suite of professional metrics.",
+      "get_started": "Get Started",
+      "learn_more": "Learn More"
+    },
+    "features": {
+      "section_title": "Trending Now",
+      "match": "98% Match",
+      "items": {
+        "power": {
+          "title": "Power Analysis",
+          "desc": "Deep dive into your critical power and anaerobic work capacity."
+        },
+        "fatigue": {
+          "title": "Fatigue Monitor",
+          "desc": "Track chronic training load to optimize your form."
+        },
+        "intervals": {
+          "title": "Intervals",
+          "desc": "Automated detection and classification of efforts."
+        },
+        "progress": {
+          "title": "Progress",
+          "desc": "Visualize your improvements over time intuitively."
+        },
+        "zones": {
+          "title": "Zone Distribution",
+          "desc": "Analyze time in zones to ensure training compliance."
+        }
+      }
+    },
+    "donation": {
+      "title_prefix": "Support the",
+      "title_highlight": "Cycling Community",
+      "description": "DeepMetric Lite is and always will be free. Your support helps keep the servers running and contributes to the ecosystem.",
+      "check_free": "100% Free Tools",
+      "check_account": "No Account Required",
+      "check_donation": "15% donated to intervals.icu",
+      "button": "Donate with PayPal",
+      "disclaimer": "Secure contributions processed by PayPal."
+    },
+    "footer": {
+      "questions": "Questions? Contact us.",
+      "links": {
+        "faq": "FAQ",
+        "privacy": "Privacy",
+        "speed_test": "Speed Test",
+        "help_center": "Help Center",
+        "cookies": "Cookie Preferences",
+        "legal": "Legal Notices",
+        "account": "Account",
+        "ways_to_watch": "Ways to Watch",
+        "only_on": "Only on DeepMetric",
+        "media_center": "Media Center",
+        "terms": "Terms of Use",
+        "contact": "Contact Us"
+      },
+      "powered_by": "Data powered by"
+    }
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "translation": {
+    "navbar": {
+      "launch": "Lanzar App"
+    },
+    "hero": {
+      "title_prefix": "Desbloquea Tu",
+      "title_highlight": "Potencial Ciclista",
+      "description": "Análisis avanzado y herramientas para usuarios de Intervals.icu. Profundiza en tus datos con nuestra suite gratuita de métricas profesionales.",
+      "get_started": "Empezar",
+      "learn_more": "Saber Más"
+    },
+    "features": {
+      "section_title": "Tendencias Ahora",
+      "match": "98% Coincidencia",
+      "items": {
+        "power": {
+          "title": "Análisis de Potencia",
+          "desc": "Profundiza en tu potencia crítica y capacidad de trabajo anaeróbico."
+        },
+        "fatigue": {
+          "title": "Monitor de Fatiga",
+          "desc": "Rastrea la carga de entrenamiento crónica para optimizar tu forma."
+        },
+        "intervals": {
+          "title": "Intervalos",
+          "desc": "Detección y clasificación automatizada de esfuerzos."
+        },
+        "progress": {
+          "title": "Progreso",
+          "desc": "Visualiza tus mejoras a lo largo del tiempo de forma intuitiva."
+        },
+        "zones": {
+          "title": "Distribución de Zonas",
+          "desc": "Analiza el tiempo en zonas para asegurar el cumplimiento del entrenamiento."
+        }
+      }
+    },
+    "donation": {
+      "title_prefix": "Apoya a la",
+      "title_highlight": "Comunidad Ciclista",
+      "description": "DeepMetric Lite es y siempre será gratuito. Tu apoyo ayuda a mantener los servidores y contribuye al ecosistema.",
+      "check_free": "Herramientas 100% Gratuitas",
+      "check_account": "No Requiere Cuenta",
+      "check_donation": "15% donado a intervals.icu",
+      "button": "Donar con PayPal",
+      "disclaimer": "Contribuciones seguras procesadas por PayPal."
+    },
+    "footer": {
+      "questions": "¿Preguntas? Contáctanos.",
+      "links": {
+        "faq": "Preguntas Frecuentes",
+        "privacy": "Privacidad",
+        "speed_test": "Prueba de Velocidad",
+        "help_center": "Centro de Ayuda",
+        "cookies": "Preferencias de Cookies",
+        "legal": "Avisos Legales",
+        "account": "Cuenta",
+        "ways_to_watch": "Formas de Ver",
+        "only_on": "Solo en DeepMetric",
+        "media_center": "Centro de Medios",
+        "terms": "Términos de Uso",
+        "contact": "Contáctanos"
+      },
+      "powered_by": "Datos impulsados por"
+    }
+  }
+}

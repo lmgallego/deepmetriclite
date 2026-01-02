@@ -1,42 +1,44 @@
 import { useRef, cloneElement, ReactElement } from 'react';
 import { motion } from 'framer-motion';
 import { BarChart2, Activity, Zap, TrendingUp, Info, ChevronRight, ChevronLeft } from 'lucide-react';
-
-const features = [
-  {
-    icon: <BarChart2 className="w-8 h-8 text-netflix-red" />,
-    title: "Power Analysis",
-    description: "Deep dive into your critical power and anaerobic work capacity.",
-    image: "https://images.unsplash.com/photo-1576435728678-68d0fbf94e91?q=80&w=2048&auto=format&fit=crop"
-  },
-  {
-    icon: <Activity className="w-8 h-8 text-netflix-red" />,
-    title: "Fatigue Monitor",
-    description: "Track chronic training load to optimize your form.",
-    image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2070&auto=format&fit=crop"
-  },
-  {
-    icon: <Zap className="w-8 h-8 text-netflix-red" />,
-    title: "Intervals",
-    description: "Automated detection and classification of efforts.",
-    image: "https://images.unsplash.com/photo-1555675409-77a8846c8230?q=80&w=2070&auto=format&fit=crop"
-  },
-  {
-    icon: <TrendingUp className="w-8 h-8 text-netflix-red" />,
-    title: "Progress",
-    description: "Visualize your improvements over time intuitively.",
-    image: "https://images.unsplash.com/photo-1616960893049-7c87c06cb491?q=80&w=2070&auto=format&fit=crop"
-  },
-  {
-    icon: <BarChart2 className="w-8 h-8 text-netflix-red" />,
-    title: "Zone Distribution",
-    description: "Analyze time in zones to ensure training compliance.",
-    image: "https://images.unsplash.com/photo-1517649763962-0c623066013b?q=80&w=2070&auto=format&fit=crop"
-  }
-];
+import { useTranslation } from 'react-i18next';
 
 const Features = () => {
+  const { t } = useTranslation();
   const scrollRef = useRef<HTMLDivElement>(null);
+
+  const features = [
+    {
+      icon: <BarChart2 className="w-8 h-8 text-netflix-red" />,
+      title: t('features.items.power.title'),
+      description: t('features.items.power.desc'),
+      image: "https://images.unsplash.com/photo-1576435728678-68d0fbf94e91?q=80&w=2048&auto=format&fit=crop"
+    },
+    {
+      icon: <Activity className="w-8 h-8 text-netflix-red" />,
+      title: t('features.items.fatigue.title'),
+      description: t('features.items.fatigue.desc'),
+      image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2070&auto=format&fit=crop"
+    },
+    {
+      icon: <Zap className="w-8 h-8 text-netflix-red" />,
+      title: t('features.items.intervals.title'),
+      description: t('features.items.intervals.desc'),
+      image: "https://images.unsplash.com/photo-1555675409-77a8846c8230?q=80&w=2070&auto=format&fit=crop"
+    },
+    {
+      icon: <TrendingUp className="w-8 h-8 text-netflix-red" />,
+      title: t('features.items.progress.title'),
+      description: t('features.items.progress.desc'),
+      image: "https://images.unsplash.com/photo-1616960893049-7c87c06cb491?q=80&w=2070&auto=format&fit=crop"
+    },
+    {
+      icon: <BarChart2 className="w-8 h-8 text-netflix-red" />,
+      title: t('features.items.zones.title'),
+      description: t('features.items.zones.desc'),
+      image: "https://images.unsplash.com/photo-1517649763962-0c623066013b?q=80&w=2070&auto=format&fit=crop"
+    }
+  ];
 
   const scroll = (direction: 'left' | 'right') => {
     if (scrollRef.current) {
@@ -50,7 +52,7 @@ const Features = () => {
     <div className="py-20 bg-netflix-black relative z-20 overflow-hidden">
       <div className="container mx-auto px-4 md:px-12">
         <h2 className="text-2xl md:text-3xl font-bold mb-4 text-white">
-          Trending Now
+          {t('features.section_title')}
         </h2>
         
         <div className="group relative">
@@ -99,7 +101,7 @@ const Features = () => {
                   </div>
 
                   <div className="mt-2 flex gap-2 text-[10px] font-semibold text-green-400">
-                    <span>98% Match</span>
+                    <span>{t('features.match')}</span>
                     <span className="border border-gray-600 px-1 text-gray-400">HD</span>
                   </div>
                 </div>
