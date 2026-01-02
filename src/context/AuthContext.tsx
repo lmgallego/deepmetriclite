@@ -11,23 +11,43 @@ interface AuthContextType {
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
+// Simple encoding to make API key less visible in storage (not encryption, just obfuscation)
+const encodeKey = (key: string): string => {
+  return btoa(key.split('').reverse().join(''));
+};
+
+const decodeKey = (encoded: string): string => {
+  try {
+    return atob(encoded).split('').reverse().join('');
+  } catch {
+    return '';
+  }
+};
+
+const STORAGE_KEY = '_dm_session';
+const USER_KEY = '_dm_user';
+
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [apiKey, setApiKey] = useState<string | null>(null);
   const [user, setUser] = useState<any | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const storedKey = localStorage.getItem('intervals_api_key');
-    const storedUser = localStorage.getItem('intervals_user');
+    // Use sessionStorage - clears when browser closes
+    const storedKey = sessionStorage.getItem(STORAGE_KEY);
+    const storedUser = sessionStorage.getItem(USER_KEY);
     
     if (storedKey) {
-      setApiKey(storedKey);
+      const decoded = decodeKey(storedKey);
+      if (decoded) {
+        setApiKey(decoded);
+      }
     }
     if (storedUser) {
       try {
         setUser(JSON.parse(storedUser));
       } catch (e) {
-        console.error("Failed to parse stored user", e);
+        // Silent fail
       }
     }
     setIsLoading(false);
@@ -35,37 +55,30 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   const login = async (key: string): Promise<boolean> => {
     setIsLoading(true);
-    try {
-      // Validate key with Intervals.icu API
-      // Using 'api' as password is the standard for Basic Auth with API keys in Intervals.icu
-      const response = await fetch('https://intervals.icu/api/v1/athlete/0', {
-        headers: {
-          'Authorization': 'Basic ' + btoa(key + ':api')
-        }
-      });
-
-      if (response.ok) {
-        const userData = await response.json();
-        setApiKey(key);
-        setUser(userData);
-        localStorage.setItem('intervals_api_key', key);
-        localStorage.setItem('intervals_user', JSON.stringify(userData));
-        return true;
-      }
-      return false;
-    } catch (error) {
-      console.error("Login failed", error);
-      return false;
-    } finally {
+    
+    // Basic validation: check key is not empty and has reasonable length
+    if (!key || key.trim().length < 10) {
       setIsLoading(false);
+      return false;
     }
+    
+    const trimmedKey = key.trim();
+    
+    // Store encoded key in sessionStorage (clears on browser close)
+    setApiKey(trimmedKey);
+    setUser({ id: '0', name: 'Intervals.icu User' });
+    sessionStorage.setItem(STORAGE_KEY, encodeKey(trimmedKey));
+    sessionStorage.setItem(USER_KEY, JSON.stringify({ id: '0', name: 'Intervals.icu User' }));
+    
+    setIsLoading(false);
+    return true;
   };
 
   const logout = () => {
     setApiKey(null);
     setUser(null);
-    localStorage.removeItem('intervals_api_key');
-    localStorage.removeItem('intervals_user');
+    sessionStorage.removeItem(STORAGE_KEY);
+    sessionStorage.removeItem(USER_KEY);
   };
 
   return (

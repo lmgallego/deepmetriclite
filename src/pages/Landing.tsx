@@ -33,9 +33,17 @@ const Landing = () => {
     <div className="min-h-screen bg-netflix-black text-white overflow-x-hidden">
        <nav className={`fixed w-full z-50 px-4 py-4 md:px-12 flex justify-between items-center transition-all duration-300 ${isScrolled ? 'bg-netflix-black shadow-lg' : 'bg-gradient-to-b from-black/80 to-transparent'}`}>
         <div className="flex items-center gap-2">
-           <span className="text-netflix-red text-2xl md:text-3xl font-bold tracking-tighter uppercase shadow-lg cursor-pointer">DeepMetric Lite</span>
+           <span className="text-2xl md:text-3xl font-bold tracking-tighter cursor-pointer" onClick={() => navigate('/')}>
+             Deep<span className="text-netflix-red">Metric</span> Lite
+           </span>
         </div>
         <div className="flex items-center gap-4">
+            <button 
+              onClick={() => navigate('/roadmap')}
+              className="text-white hover:text-netflix-red font-medium text-sm transition hidden md:block"
+            >
+              Roadmap
+            </button>
             <button 
               onClick={toggleLanguage}
               className="text-white hover:text-gray-300 font-medium text-sm border border-white/30 px-2 py-1 rounded"

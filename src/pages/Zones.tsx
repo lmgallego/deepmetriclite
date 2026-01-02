@@ -2,14 +2,14 @@ import { useState, useEffect } from 'react';
 import { 
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell 
 } from 'recharts';
-import { Loader, ArrowLeft, RefreshCw, AlertCircle, BarChart3, Clock } from 'lucide-react';
+import { Loader, ArrowLeft, RefreshCw, AlertCircle, BarChart as IconBarChart, Clock } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 
-const API_BASE = 'https://intervals.icu/api/v1';
-const CORS_PROXY = 'https://corsproxy.io/?';
+// Use Vite proxy in development
+const API_BASE = '/api/v1';
 
 const Zones = () => {
   const { apiKey, user } = useAuth();
@@ -37,16 +37,14 @@ const Zones = () => {
       const oldestStr = oldest.toISOString().split('T')[0];
       
       const athleteId = user.id || '0';
-      // We'll use the 'totals' endpoint to get summaries.
-      const targetUrl = `${API_BASE}/athlete/${athleteId}/totals?oldest=${oldestStr}&newest=${newestStr}`;
-      const finalUrl = CORS_PROXY + encodeURIComponent(targetUrl);
+      const endpoint = `${API_BASE}/athlete/${athleteId}/totals?oldest=${oldestStr}&newest=${newestStr}`;
       
-      const authHeaders = { 
-        'Authorization': 'Basic ' + btoa('API_KEY:' + apiKey),
-        'Accept': 'application/json'
-      };
-      
-      const response = await fetch(finalUrl, { headers: authHeaders });
+      const response = await fetch(endpoint, {
+        headers: { 
+          'Authorization': 'Basic ' + btoa('API_KEY:' + apiKey),
+          'Accept': 'application/json'
+        }
+      });
 
       if (!response.ok) {
         if (response.status === 401) throw new Error(t('readiness.error_unauthorized'));
@@ -178,7 +176,7 @@ const Zones = () => {
               <div className="lg:col-span-2 bg-[#181818] border border-gray-800 rounded-3xl p-6 shadow-xl">
                 <div className="flex justify-between items-center mb-6">
                   <h3 className="text-lg font-bold text-white flex items-center gap-2">
-                    <BarChart3 size={18} className="text-orange-500" /> {t('zones.chart_title')}
+                    <IconBarChart size={18} className="text-orange-500" /> {t('zones.chart_title')}
                   </h3>
                   <span className="text-sm text-gray-500">{(totalTime / 3600).toFixed(1)}h Total</span>
                 </div>
@@ -242,7 +240,7 @@ const Zones = () => {
           </motion.div>
         ) : (
           <div className="flex flex-col items-center justify-center py-28 text-slate-500 border-2 border-dashed border-slate-800 rounded-3xl bg-slate-900/10">
-            <BarChart3 size={48} className="mb-4 opacity-20" />
+            <IconBarChart size={48} className="mb-4 opacity-20" />
             <p className="text-center px-8 text-sm font-medium">{t('readiness.no_data')}</p>
           </div>
         )}

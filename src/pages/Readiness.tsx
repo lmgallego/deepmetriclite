@@ -10,10 +10,38 @@ import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 
 // --- API CONFIG ---
-const API_BASE = 'https://intervals.icu/api/v1';
-// Note: In production/local dev we might need a proxy if CORS issues arise with direct browser calls to Intervals.icu
-// The user provided code used corsproxy.io. We will keep it for now to ensure it works as requested.
-const CORS_PROXY = 'https://corsproxy.io/?';
+// Use Vite proxy in development to avoid CORS issues
+const API_BASE = '/api/v1';
+
+// Helper function to fetch data with proper auth
+const fetchIntervalsAPI = async (endpoint: string, apiKey: string) => {
+  const url = `${API_BASE}${endpoint}`;
+  console.log('Fetching:', url);
+  
+  return fetch(url, {
+    headers: {
+      'Authorization': 'Basic ' + btoa('API_KEY:' + apiKey),
+      'Accept': 'application/json'
+    }
+  });
+};
+
+// Helper to parse CSV response
+const parseCSV = (csvText: string): any[] => {
+  const lines = csvText.trim().split('\n');
+  if (lines.length < 2) return [];
+  
+  const headers = lines[0].split(',').map(h => h.trim().replace(/"/g, ''));
+  const rows = lines.slice(1).map(line => {
+    const values = line.split(',').map(v => v.trim().replace(/"/g, ''));
+    const obj: any = {};
+    headers.forEach((h, i) => {
+      obj[h] = values[i];
+    });
+    return obj;
+  });
+  return rows;
+};
 
 const Readiness = () => {
   const { apiKey, user } = useAuth();
@@ -21,6 +49,7 @@ const Readiness = () => {
   const { t } = useTranslation();
   
   const [rawWellness, setRawWellness] = useState<any[]>([]);
+  const [dailyLoads, setDailyLoads] = useState<Record<string, number>>({});
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [selectedView, setSelectedView] = useState<'zscore' | 'raw'>('zscore');
@@ -36,29 +65,54 @@ const Readiness = () => {
       const oldest = new Date();
       oldest.setDate(oldest.getDate() - 30);
       const oldestStr = oldest.toISOString().split('T')[0];
+      const newestStr = new Date().toISOString().split('T')[0];
       
-      // Use the athlete ID from the authenticated user context or default to '0' (self)
       const athleteId = user.id || '0';
-      const targetUrl = `${API_BASE}/athlete/${athleteId}/wellness?oldest=${oldestStr}`;
-      const finalUrl = CORS_PROXY + encodeURIComponent(targetUrl);
       
-      const authHeaders = { 
-        'Authorization': 'Basic ' + btoa('API_KEY:' + apiKey),
-        'Accept': 'application/json'
-      };
+      console.log('API Key (first 5 chars):', apiKey?.substring(0, 5));
       
-      const response = await fetch(finalUrl, { headers: authHeaders });
+      // Fetch wellness data
+      const wellnessEndpoint = `/athlete/${athleteId}/wellness?oldest=${oldestStr}`;
+      const wellnessResponse = await fetchIntervalsAPI(wellnessEndpoint, apiKey!);
 
-      if (!response.ok) {
-        if (response.status === 401) throw new Error(t('readiness.error_unauthorized'));
-        throw new Error(`API Error: ${response.status}`);
+      if (!wellnessResponse.ok) {
+        if (wellnessResponse.status === 401) throw new Error(t('readiness.error_unauthorized'));
+        throw new Error(`API Error: ${wellnessResponse.status}`);
       }
       
-      const data = await response.json();
-      if (!Array.isArray(data)) throw new Error(t('readiness.error_invalid_response'));
+      const wellnessData = await wellnessResponse.json();
+      if (!Array.isArray(wellnessData)) throw new Error(t('readiness.error_invalid_response'));
 
-      const sorted = [...data].sort((a, b) => new Date(a.id).getTime() - new Date(b.id).getTime());
+      const sorted = [...wellnessData].sort((a, b) => new Date(a.id).getTime() - new Date(b.id).getTime());
       setRawWellness(sorted);
+      
+      // Fetch activities data for training load
+      const activitiesEndpoint = `/athlete/${athleteId}/activities.csv?oldest=${oldestStr}&newest=${newestStr}`;
+      const activitiesResponse = await fetch(`${API_BASE}${activitiesEndpoint}`, {
+        headers: {
+          'Authorization': 'Basic ' + btoa('API_KEY:' + apiKey),
+          'Accept': 'text/csv'
+        }
+      });
+      
+      if (activitiesResponse.ok) {
+        const csvText = await activitiesResponse.text();
+        const activities = parseCSV(csvText);
+        
+        // Aggregate daily training load (sum of icu_training_load per day)
+        const loadByDate: Record<string, number> = {};
+        activities.forEach((act: any) => {
+          // Extract date from start_date_local (format: YYYY-MM-DD or YYYY-MM-DDTHH:MM:SS)
+          const dateStr = act.start_date_local?.split('T')[0];
+          if (dateStr && act.icu_training_load) {
+            const load = parseFloat(act.icu_training_load) || 0;
+            loadByDate[dateStr] = (loadByDate[dateStr] || 0) + load;
+          }
+        });
+        
+        console.log('Daily loads:', loadByDate);
+        setDailyLoads(loadByDate);
+      }
 
     } catch (err: any) {
       console.error("Error Intervals:", err);
@@ -82,7 +136,7 @@ const Readiness = () => {
       rhr: w.restingHR || null,
       sleep: w.sleepSecs ? (w.sleepSecs / 3600) : null,
       sleepScore: w.sleepScore || null,
-      carga: w.trainingLoad || 0
+      carga: dailyLoads[w.id] || 0
     })).filter(d => d.rmssd !== null && d.rhr !== null);
 
     if (baseData.length < 2) return [];
@@ -136,7 +190,7 @@ const Readiness = () => {
         severity: finalReadiness < 45 ? 'critical' : finalReadiness < 65 ? 'warning' : 'normal'
       };
     });
-  }, [rawWellness]);
+  }, [rawWellness, dailyLoads]);
 
   const latest = processedData.length > 0 ? processedData[processedData.length - 1] : null;
 

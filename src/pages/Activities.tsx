@@ -7,8 +7,8 @@ import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 
-const API_BASE = 'https://intervals.icu/api/v1';
-const CORS_PROXY = 'https://corsproxy.io/?';
+// Use Vite proxy in development
+const API_BASE = '/api/v1';
 
 const Activities = () => {
   const { apiKey, user } = useAuth();
@@ -33,15 +33,14 @@ const Activities = () => {
       const newestStr = new Date().toISOString().split('T')[0];
       
       const athleteId = user.id || '0';
-      const targetUrl = `${API_BASE}/athlete/${athleteId}/activities?oldest=${oldestStr}&newest=${newestStr}`;
-      const finalUrl = CORS_PROXY + encodeURIComponent(targetUrl);
+      const endpoint = `${API_BASE}/athlete/${athleteId}/activities?oldest=${oldestStr}&newest=${newestStr}`;
       
-      const authHeaders = { 
-        'Authorization': 'Basic ' + btoa('API_KEY:' + apiKey),
-        'Accept': 'application/json'
-      };
-      
-      const response = await fetch(finalUrl, { headers: authHeaders });
+      const response = await fetch(endpoint, {
+        headers: { 
+          'Authorization': 'Basic ' + btoa('API_KEY:' + apiKey),
+          'Accept': 'application/json'
+        }
+      });
 
       if (!response.ok) {
         if (response.status === 401) throw new Error(t('readiness.error_unauthorized'));
