@@ -1,21 +1,36 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 const Hero = () => {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"]
+  });
+
+  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+  const textY = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+
   return (
-    <div className="relative h-screen flex items-center justify-center overflow-hidden">
+    <div ref={ref} className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image with Overlay */}
-      <div className="absolute inset-0 z-0">
+      <motion.div 
+        style={{ y: backgroundY }}
+        className="absolute inset-0 z-0"
+      >
         <div className="absolute inset-0 bg-gradient-to-t from-netflix-black via-transparent to-black/60 z-10" />
         <div className="absolute inset-0 bg-gradient-to-r from-netflix-black via-transparent to-black/60 z-10" />
         <img 
-          src="https://images.unsplash.com/photo-1517649763962-0c623066013b?q=80&w=2070&auto=format&fit=crop" 
+          src="https://images.unsplash.com/photo-1559166631-ef208440c75a?q=80&w=2070&auto=format&fit=crop" 
           alt="Cycling Hero" 
           className="w-full h-full object-cover opacity-60"
         />
-      </div>
+      </motion.div>
 
-      <div className="relative z-20 container mx-auto px-4 md:px-12 flex flex-col items-center text-center md:items-start md:text-left mt-20">
+      <motion.div 
+        style={{ y: textY }}
+        className="relative z-20 container mx-auto px-4 md:px-12 flex flex-col items-center text-center md:items-start md:text-left mt-20"
+      >
         <motion.h1 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -50,7 +65,7 @@ const Hero = () => {
              Learn More
           </button>
         </motion.div>
-      </div>
+      </motion.div>
     </div>
   );
 };
