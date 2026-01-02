@@ -33,10 +33,15 @@ const Donation = () => {
               </div>
             </div>
 
-            <button className="bg-netflix-red hover:bg-red-700 text-white text-xl font-bold px-12 py-4 rounded flex items-center gap-3 mx-auto md:mx-0 transition-transform hover:scale-105 shadow-xl">
+            <a 
+              href="https://www.paypal.com/paypalme/luismagallego" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="bg-netflix-red hover:bg-red-700 text-white text-xl font-bold px-12 py-4 rounded flex items-center gap-3 mx-auto md:mx-0 transition-transform hover:scale-105 shadow-xl w-fit"
+            >
               <Heart className="w-6 h-6 fill-current" />
               <span>{t('donation.button')}</span>
-            </button>
+            </a>
             <p className="text-sm text-gray-500 mt-4">
                {t('donation.disclaimer')}
             </p>
