@@ -131,6 +131,16 @@
     "activities": {
       "title": "Recent Activities",
       "subtitle": "Analysis of your last 30 days of training"
+    },
+    "zones": {
+      "title": "Zone Distribution",
+      "subtitle": "Time in Zones (Power/HR) - Last 28 Days",
+      "chart_title": "Training Intensity Distribution",
+      "breakdown": "Zone Breakdown",
+      "analysis": "Intensity Analysis",
+      "polarized": "Your training looks Polarized! High volume of low intensity with targeted high intensity efforts.",
+      "pyramidal": "Detected Pyramidal distribution. Significant time in Tempo/Sweetspot. Good for building base.",
+      "mixed": "Mixed intensity distribution. Ensure you are polarizing your training for optimal adaptation."
     }
   }
 }

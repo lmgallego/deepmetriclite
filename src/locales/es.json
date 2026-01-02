@@ -131,6 +131,16 @@
     "activities": {
       "title": "Actividades Recientes",
       "subtitle": "Análisis de tus últimos 30 días de entrenamiento"
+    },
+    "zones": {
+      "title": "Distribución de Zonas",
+      "subtitle": "Tiempo en Zonas (Potencia/FC) - Últimos 28 Días",
+      "chart_title": "Distribución de Intensidad",
+      "breakdown": "Desglose de Zonas",
+      "analysis": "Análisis de Intensidad",
+      "polarized": "¡Tu entrenamiento parece Polarizado! Alto volumen de baja intensidad con esfuerzos altos puntuales.",
+      "pyramidal": "Distribución Piramidal detectada. Tiempo significativo en Tempo/Sweetspot. Bueno para base.",
+      "mixed": "Distribución mixta. Asegúrate de polarizar tu entrenamiento para adaptaciones óptimas."
     }
   }
 }

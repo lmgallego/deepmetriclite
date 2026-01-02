@@ -112,6 +112,28 @@ const Dashboard = () => {
               </p>
             </div>
           </div>
+
+          {/* Zones Card */}
+          <div 
+            onClick={() => navigate('/zones')}
+            className="group bg-[#181818] rounded-xl overflow-hidden cursor-pointer transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:shadow-orange-900/20 border border-gray-800 hover:border-orange-600/50"
+          >
+            <div className="h-40 bg-gradient-to-br from-orange-900 to-black relative overflow-hidden">
+               <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1551698618-1dfe5d97d256?q=80&w=1470&auto=format&fit=crop')] bg-cover bg-center opacity-40 group-hover:opacity-50 transition-opacity" />
+               <div className="absolute top-4 right-4 bg-orange-600 p-2 rounded-lg shadow-lg">
+                  <BarChart3 className="text-white w-6 h-6" />
+               </div>
+               <div className="absolute bottom-4 left-4">
+                 <span className="text-xs font-bold text-orange-200 tracking-wider uppercase">Utility #5</span>
+               </div>
+            </div>
+            <div className="p-6">
+              <h3 className="text-xl font-bold mb-2 group-hover:text-orange-500 transition-colors">{t('zones.title')}</h3>
+              <p className="text-gray-400 text-sm leading-relaxed">
+                {t('zones.subtitle')}
+              </p>
+            </div>
+          </div>
           
         </div>
       </div>
