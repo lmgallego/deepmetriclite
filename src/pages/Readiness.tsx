@@ -159,7 +159,7 @@ const Readiness = () => {
           <button 
             onClick={fetchIntervalsData}
             disabled={loading}
-            className="ml-auto bg-indigo-600 hover:bg-indigo-500 disabled:opacity-50 text-white font-bold py-2 px-6 rounded-lg flex items-center justify-center gap-2 transition-all shadow-lg active:scale-95"
+            className="ml-auto bg-netflix-red hover:bg-red-700 disabled:opacity-50 text-white font-bold py-2 px-6 rounded-lg flex items-center justify-center gap-2 transition-all shadow-lg active:scale-95"
           >
             {loading ? <RefreshCw className="animate-spin" size={18} /> : <RefreshCw size={18} />}
             {loading ? t('readiness.syncing') : t('readiness.refresh')}
@@ -208,8 +208,8 @@ const Readiness = () => {
                   <Calendar size={14} /> {t('readiness.cycle_30d')}
                 </h3>
                 <div className="flex bg-slate-800 p-1 rounded-xl">
-                  <button onClick={() => setSelectedView('zscore')} className={`px-4 py-1.5 rounded-lg text-[10px] font-bold transition-all ${selectedView === 'zscore' ? 'bg-indigo-600 text-white shadow-lg' : 'text-slate-400'}`}>Z-SCORE</button>
-                  <button onClick={() => setSelectedView('raw')} className={`px-4 py-1.5 rounded-lg text-[10px] font-bold transition-all ${selectedView === 'raw' ? 'bg-indigo-600 text-white shadow-lg' : 'text-slate-400'}`}>{t('readiness.values')}</button>
+                  <button onClick={() => setSelectedView('zscore')} className={`px-4 py-1.5 rounded-lg text-[10px] font-bold transition-all ${selectedView === 'zscore' ? 'bg-netflix-red text-white shadow-lg' : 'text-slate-400'}`}>Z-SCORE</button>
+                  <button onClick={() => setSelectedView('raw')} className={`px-4 py-1.5 rounded-lg text-[10px] font-bold transition-all ${selectedView === 'raw' ? 'bg-netflix-red text-white shadow-lg' : 'text-slate-400'}`}>{t('readiness.values')}</button>
                 </div>
               </div>
               <div className="h-[400px] w-full">

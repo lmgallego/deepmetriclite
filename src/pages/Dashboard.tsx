@@ -28,19 +28,19 @@ const Dashboard = () => {
           {/* Readiness Monitor Card */}
           <div 
             onClick={() => navigate('/readiness')}
-            className="group bg-[#181818] rounded-xl overflow-hidden cursor-pointer transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:shadow-indigo-500/20 border border-gray-800 hover:border-indigo-500/50"
+            className="group bg-[#181818] rounded-xl overflow-hidden cursor-pointer transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:shadow-red-900/20 border border-gray-800 hover:border-red-900/50"
           >
-            <div className="h-40 bg-gradient-to-br from-indigo-900 to-slate-900 relative overflow-hidden">
+            <div className="h-40 bg-gradient-to-br from-red-900 to-black relative overflow-hidden">
                <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1470&auto=format&fit=crop')] bg-cover bg-center opacity-40 group-hover:opacity-50 transition-opacity" />
-               <div className="absolute top-4 right-4 bg-indigo-600 p-2 rounded-lg">
+               <div className="absolute top-4 right-4 bg-netflix-red p-2 rounded-lg shadow-lg">
                   <Activity className="text-white w-6 h-6" />
                </div>
                <div className="absolute bottom-4 left-4">
-                 <span className="text-xs font-bold text-indigo-400 tracking-wider uppercase">Utility #1</span>
+                 <span className="text-xs font-bold text-red-200 tracking-wider uppercase">Utility #1</span>
                </div>
             </div>
             <div className="p-6">
-              <h3 className="text-xl font-bold mb-2 group-hover:text-indigo-400 transition-colors">{t('dashboard.apps.readiness.title')}</h3>
+              <h3 className="text-xl font-bold mb-2 group-hover:text-netflix-red transition-colors">{t('dashboard.apps.readiness.title')}</h3>
               <p className="text-gray-400 text-sm leading-relaxed">
                 {t('dashboard.apps.readiness.desc')}
               </p>
