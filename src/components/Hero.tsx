@@ -1,0 +1,58 @@
+import React from 'react';
+import { motion } from 'framer-motion';
+
+const Hero = () => {
+  return (
+    <div className="relative h-screen flex items-center justify-center overflow-hidden">
+      {/* Background Image with Overlay */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-gradient-to-t from-netflix-black via-transparent to-black/60 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-netflix-black via-transparent to-black/60 z-10" />
+        <img 
+          src="https://images.unsplash.com/photo-1517649763962-0c623066013b?q=80&w=2070&auto=format&fit=crop" 
+          alt="Cycling Hero" 
+          className="w-full h-full object-cover opacity-60"
+        />
+      </div>
+
+      <div className="relative z-20 container mx-auto px-4 md:px-12 flex flex-col items-center text-center md:items-start md:text-left mt-20">
+        <motion.h1 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-5xl md:text-7xl font-bold mb-4 drop-shadow-2xl max-w-4xl"
+        >
+          Unlock Your <br/>
+          <span className="text-netflix-red">Cycling Potential</span>
+        </motion.h1>
+        
+        <motion.p 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="text-lg md:text-2xl text-gray-200 mb-8 max-w-2xl drop-shadow-md"
+        >
+          Advanced analytics and tools for Intervals.icu users. 
+          Deep dive into your data with our free suite of professional metrics.
+        </motion.p>
+
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="flex flex-col md:flex-row gap-4 w-full md:w-auto"
+        >
+          <button className="flex items-center justify-center gap-2 bg-netflix-red hover:bg-red-700 text-white px-8 py-3 rounded text-xl font-bold transition duration-300 w-full md:w-auto">
+            <span>Get Started</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </button>
+          <button className="flex items-center justify-center gap-2 bg-gray-500/40 hover:bg-gray-500/60 backdrop-blur-sm text-white px-8 py-3 rounded text-xl font-bold transition duration-300 w-full md:w-auto">
+             Learn More
+          </button>
+        </motion.div>
+      </div>
+    </div>
+  );
+};
+
+export default Hero;
