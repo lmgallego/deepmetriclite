@@ -63,6 +63,20 @@
         "contact": "Contáctanos"
       },
       "powered_by": "Datos impulsados por"
+    },
+    "login": {
+      "title": "Iniciar Sesión",
+      "label": "Clave API de Intervals.icu",
+      "placeholder": "Pega tu Clave API aquí",
+      "error": "Clave API inválida. Verifica en la configuración de Intervals.icu.",
+      "verifying": "Verificando...",
+      "submit": "Entrar",
+      "help": "¿Dónde encuentro mi clave?",
+      "settings_link": "Ir a Configuración de Intervals.icu"
+    },
+    "dashboard": {
+      "welcome": "Bienvenido de nuevo",
+      "logout": "Cerrar Sesión"
     }
   }
 }

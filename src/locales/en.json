@@ -63,6 +63,20 @@
         "contact": "Contact Us"
       },
       "powered_by": "Data powered by"
+    },
+    "login": {
+      "title": "Sign In",
+      "label": "Intervals.icu API Key",
+      "placeholder": "Paste your API Key here",
+      "error": "Invalid API Key. Please check your Intervals.icu settings.",
+      "verifying": "Verifying...",
+      "submit": "Sign In",
+      "help": "Where can I find my key?",
+      "settings_link": "Go to Intervals.icu Settings"
+    },
+    "dashboard": {
+      "welcome": "Welcome back",
+      "logout": "Sign Out"
     }
   }
 }
