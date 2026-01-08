@@ -10,6 +10,7 @@ import Fatigue from './pages/Fatigue';
 import Activities from './pages/Activities';
 import Zones from './pages/Zones';
 import Roadmap from './pages/Roadmap';
+import IntervalsDataDoctor from './pages/IntervalsDataDoctor';
 
 // Component for protecting private routes
 const PrivateRoute = ({ children }: { children: JSX.Element }) => {
@@ -80,6 +81,14 @@ function App() {
               element={
                 <PrivateRoute>
                   <Zones />
+                </PrivateRoute>
+              } 
+            />
+            <Route 
+              path="/data-doctor" 
+              element={
+                <PrivateRoute>
+                  <IntervalsDataDoctor />
                 </PrivateRoute>
               } 
             />

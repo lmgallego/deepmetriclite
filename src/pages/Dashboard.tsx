@@ -78,14 +78,13 @@ const Dashboard = () => {
             </div>
           </div>
 
-          {/* Intervals Data Doctor Card - COMING SOON */}
-          <div className="group bg-[#181818] rounded-xl overflow-hidden cursor-not-allowed transition-all duration-300 border border-gray-800 opacity-75 relative">
-            <div className="absolute top-2 left-2 z-10 bg-yellow-600 text-white text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1">
-              <Lock size={12} />
-              {isSpanish ? 'Próximamente' : 'Coming Soon'}
-            </div>
+          {/* Intervals Data Doctor Card - ACTIVE */}
+          <div 
+            onClick={() => navigate('/data-doctor')}
+            className="group bg-[#181818] rounded-xl overflow-hidden cursor-pointer transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:shadow-yellow-900/20 border border-gray-800 hover:border-yellow-900/50"
+          >
             <div className="h-40 bg-gradient-to-br from-yellow-900 to-black relative overflow-hidden">
-               <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=1470&auto=format&fit=crop')] bg-cover bg-center opacity-30" />
+               <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=1470&auto=format&fit=crop')] bg-cover bg-center opacity-40 group-hover:opacity-50 transition-opacity" />
                <div className="absolute top-4 right-4 bg-yellow-600 p-2 rounded-lg shadow-lg">
                   <Wrench className="text-white w-6 h-6" />
                </div>
@@ -94,7 +93,7 @@ const Dashboard = () => {
                </div>
             </div>
             <div className="p-6">
-              <h3 className="text-xl font-bold mb-2 text-yellow-500">Intervals Data Doctor</h3>
+              <h3 className="text-xl font-bold mb-2 group-hover:text-yellow-500 transition-colors">Intervals Data Doctor</h3>
               <p className="text-gray-400 text-sm leading-relaxed">
                 {isSpanish 
                   ? 'Corrección de picos de potencia, frecuencia cardíaca, torque y cadencia.' 
