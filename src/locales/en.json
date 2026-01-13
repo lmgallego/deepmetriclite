@@ -79,7 +79,7 @@
       "logout": "Sign Out",
       "apps": {
         "readiness": {
-          "title": "Readiness Monitor V2",
+          "title": "Readiness Monitor V3",
           "desc": "Advanced analysis of HRV, resting heart rate, and sleep to determine your daily form."
         }
       }
@@ -99,7 +99,7 @@
       "values": "VALUES",
       "load_tss": "Load (TSS)",
       "avg_7d": "7d Avg",
-      "algorithm_notes": "Algorithm V2 Notes",
+      "algorithm_notes": "Algorithm V3 Notes",
       "null_detection": "Null Detection",
       "null_detection_desc": "If sleep data or score is missing, the system ignores those penalties to avoid skewing the result, based only on HRV and RHR.",
       "sensitivity": "Sensitivity",

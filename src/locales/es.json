@@ -79,7 +79,7 @@
       "logout": "Cerrar Sesión",
       "apps": {
         "readiness": {
-          "title": "Monitor de Readiness V2",
+          "title": "Monitor de Readiness V3",
           "desc": "Análisis avanzado de HRV, pulso en reposo y sueño para determinar tu forma diaria."
         }
       }
@@ -99,7 +99,7 @@
       "values": "VALORES",
       "load_tss": "Carga (TSS)",
       "avg_7d": "Media 7d",
-      "algorithm_notes": "Notas del Algoritmo V2",
+      "algorithm_notes": "Notas del Algoritmo V3",
       "null_detection": "Detección de Nulos",
       "null_detection_desc": "Si faltan datos de sueño o score, el sistema ignora esas penalizaciones para no falsear el resultado, basándose solo en HRV y RHR.",
       "sensitivity": "Sensibilidad",
