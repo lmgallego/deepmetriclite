@@ -145,8 +145,6 @@ const Readiness = () => {
 
     // Estadísticas 30d para rangos históricos
     const allRMSSD = baseData.map(d => d.rmssd!);
-    const gMinRMSSD = Math.min(...allRMSSD);
-    const gMaxRMSSD = Math.max(...allRMSSD);
     const allLN = baseData.map(d => d.lnHRV!);
     const gMinLN = Math.min(...allLN);
     const gMaxLN = Math.max(...allLN);
