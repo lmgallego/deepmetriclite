@@ -11,6 +11,7 @@ import Activities from './pages/Activities';
 import Zones from './pages/Zones';
 import Roadmap from './pages/Roadmap';
 import IntervalsDataDoctor from './pages/IntervalsDataDoctor';
+import HRVThresholds from './pages/HRVThresholds';
 
 // Component for protecting private routes
 const PrivateRoute = ({ children }: { children: JSX.Element }) => {
@@ -89,6 +90,14 @@ function App() {
               element={
                 <PrivateRoute>
                   <IntervalsDataDoctor />
+                </PrivateRoute>
+              } 
+            />
+            <Route 
+              path="/hrv-thresholds" 
+              element={
+                <PrivateRoute>
+                  <HRVThresholds />
                 </PrivateRoute>
               } 
             />

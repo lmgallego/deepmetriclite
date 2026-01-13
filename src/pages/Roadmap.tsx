@@ -35,10 +35,7 @@ const Roadmap = () => {
         : 'Power peaks, HR, cadence and torque correction with direct upload to intervals.icu',
       icon: Wrench,
       color: 'green'
-    }
-  ];
-
-  const inProgressItems: RoadmapItem[] = [
+    },
     {
       id: 3,
       title: isSpanish ? 'Umbrales HRV' : 'HRV Thresholds',
@@ -46,9 +43,11 @@ const Roadmap = () => {
         ? 'Detección de umbrales a través de DFA Alpha 1 con un algoritmo avanzado.' 
         : 'Threshold detection through DFA Alpha 1 with an advanced algorithm.',
       icon: Heart,
-      color: 'yellow'
+      color: 'green'
     }
   ];
+
+  const inProgressItems: RoadmapItem[] = [];
 
   const plannedItems: RoadmapItem[] = [
     {
